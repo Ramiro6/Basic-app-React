@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import NavBar from './shared/components/nav-bar.jsx';
 import CardPost from './posts/containers/card-post.jsx';
+import { connect } from 'react-redux';
 
 class App extends Component {
   render() {
@@ -15,4 +16,10 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapStateToProps = (state, props) => {
+  return {
+    state: state.data
+  }
+}
+
+export default connect(mapStateToProps)(App);
